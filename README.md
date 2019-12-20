@@ -9,7 +9,21 @@
 ## Description
 ## Scope Of Work
 ## Getting Started
-From the root directory (same level as `pom.xml`), run:
-   ``````
-mvn package exec:java
-   ``````
+- As usual, either copy the git and clone to you preferred directory, or download the .zip file.
+- Ive created bash scripts to make running this project easy. From the root directory (same level as `pom.xml`):
+    
+  ````
+   $ cd bin
+   ````
+   To package the .jar file, run:
+   ````
+   $ bash package.sh
+   ````
+   To view the contents of the .jar (optional):
+   ````
+   $ bash view.sh
+   ````
+   To run the .jar file, run
+   ````
+   $ bash run.sh
+   ````
