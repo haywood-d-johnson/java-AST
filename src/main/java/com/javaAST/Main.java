@@ -1,7 +1,9 @@
 package com.javaAST;
 
-public class Main {
+import java.util.Scanner;
 
+public class Main
+{
 	private static String input;
 
 	public static void main(String[] args) {
@@ -25,5 +27,4 @@ public class Main {
 		scanner.close();
 
 	}
-
 }
