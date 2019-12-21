@@ -2,5 +2,8 @@
 .idea/
 .git/
 
-# Removes .jar file for clean install
+#Remove target folder to allow clean build each machine
+.target/
+
+# Removes .jar file for clean install; catch .target/
 *.jar
