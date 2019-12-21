@@ -7,14 +7,26 @@
   * [Getting Started](#getting-started)
 
 ## Description
+
+This application will search a user requested directory for source-code files. This, the Java version of the application, will search for .java files. For each file, the application will generate an Abstract Syntax Tree (AST) and store it in a file with the same name as the source-code file but with the extension `.ast` (e.g., Person.java → Person.java.ast) and located in the same folder. 
+
 ## Scope Of Work
+
+Stepping through the project, 4 fairly simple tasks:
+
+- [X] Accepting User Input
+- [X] Searching the given path for `.java` files
+- [ ] Create output files to store AST
+- [ ] Write AST to output files
+
 ## Getting Started
+
 - As usual, either copy the git and clone to you preferred directory, or download the .zip file.
-- Ive created bash scripts to make running this project easy. From the root directory (same level as `pom.xml`):
-    
+- I've created bash scripts to make running this project easy. From the root directory (same level as `pom.xml`):
+  
   ````
    $ cd bin
-   ````
+  ````
    To package the .jar file, run:
    ````
    $ bash package.sh
