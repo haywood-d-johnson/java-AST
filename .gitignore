@@ -1,3 +1,6 @@
 # Hidden directories
 .idea/
 .git/
+
+# Removes .jar file for clean install
+*.jar
