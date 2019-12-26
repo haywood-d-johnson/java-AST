@@ -24,7 +24,7 @@ public class FileList
 			results = walk.map(i -> i.toString())
 					.filter(i -> i.endsWith(".java")).collect(Collectors.toList());
 
-			results.replaceAll(filename -> FilenameUtils.getBaseName(filename));
+			results.replaceAll(filename -> FilenameUtils.getBaseName(filename)+ "." + FilenameUtils.getExtension(filename));
 
 			System.out.println("Here are the .java files in the directory/subdirectory(s):");
 			System.out.println("-----------\n");
