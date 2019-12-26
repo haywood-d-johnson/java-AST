@@ -21,12 +21,20 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
+
     </dependencies>
 
     <build>
         <pluginManagement>
             <plugins>
-
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <configuration>
+                        <mainClass>com.javaAST.Main</mainClass>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>

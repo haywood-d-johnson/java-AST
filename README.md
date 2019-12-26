@@ -12,11 +12,11 @@ This application will search a user requested directory for source-code files. T
 
 ## Scope Of Work
 
-Stepping through the project, 4 fairly simple tasks:
+Stepping through the project, 4 fairly simple tasks are required:
 
 - [X] Accepting User Input
 - [X] Searching the given path for `.java` files
-- [ ] Create output files to store AST
+- [ ] Create output files to store AST wit the same name (trimming function)
 - [ ] Write AST to output files
 
 ## Getting Started

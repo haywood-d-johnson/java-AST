@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.apache.commons.io.FilenameUtils;
 
 import static java.nio.file.Files.walk;
 
@@ -19,8 +20,11 @@ public class FileList
 	{
 		try (Stream<Path> walk = walk(Paths.get(input))) {
 			// maps to array if file is .java
-			results = walk.map(x -> x.toString())
-					.filter(f -> f.endsWith(".java")).collect(Collectors.toList());
+
+			results = walk.map(i -> i.toString())
+					.filter(i -> i.endsWith(".java")).collect(Collectors.toList());
+
+			results.replaceAll(filename -> FilenameUtils.getBaseName(filename));
 
 			System.out.println("Here are the .java files in the directory/subdirectory(s):");
 			System.out.println("-----------\n");
