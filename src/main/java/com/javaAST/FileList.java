@@ -14,35 +14,40 @@ import static java.nio.file.Files.walk;
 
 public class FileList
 {
+	public static ASTParse parser = new ASTParse();
 	//static array to hold paths
 	public static List<String> results = new ArrayList<String>();
 
-	public static void path(String input)
+	public static List<String> path(String input)
 	{
 		try (Stream<Path> walk = walk(Paths.get(input))) {
 			// maps to array if file is .java
-
-			results = walk.map(i -> i.toString())
+			results = walk.map(Path::toString)
 					.filter(i -> i.endsWith(".java")).collect(Collectors.toList());
 
-			for (String result : results)
-			{
-				String addExtension = result + ".ast";
+			List<String> printResults = new ArrayList<String>(results);
 
-				File file = new File(addExtension);
+			printResults.replaceAll(filename -> FilenameUtils.getBaseName(filename)+ "." + FilenameUtils.getExtension(filename));
 
-				file.createNewFile();
-			}
-
-			results.replaceAll(filename -> FilenameUtils.getBaseName(filename)+ "." + FilenameUtils.getExtension(filename));
-
+			System.out.println("\n");
 			System.out.println("Here are the .java files in the directory/subdirectory(s):");
-			System.out.println("-----------\n");
-			results.forEach(System.out::println);
+			System.out.println("-----------");
+			printResults.forEach(System.out::println);
+			System.out.println("\n");
+			System.out.println("Creating and overwriting AST files...");
+			System.out.println("-----------");
+
+			return results;
 
 			// throws error if input is unmatched/no file
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	public static List<String> getResults()
+	{
+		return results;
 	}
 }

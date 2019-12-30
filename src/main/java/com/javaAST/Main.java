@@ -6,31 +6,35 @@
 
 package com.javaAST;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main
 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException
+	{
 
 		String input;
 
 		// java.util; takes user input from command line
 		Scanner scanner = new Scanner(System.in);
+		FileList fileList = new FileList();
+		ASTParse ast = new ASTParse();
 
 		do
 		{
-			// either ends on input or ":q!"
+			// either ends on input or "q"
 			System.out.print("Enter your $PATH or \"q\" to complete: ");
 
 			input = scanner.nextLine();
-
+			/*TODO: Error Handling for input*/
 			if ("q".equals(input)) {
 				System.out.println("Exit!\n");
 				break;
 			}
 
 			System.out.println("You entered: " + input);
-			System.out.println("-----------\n");
 
 			/*
 			 * FileList class instantiation to print found paths...
@@ -38,8 +42,6 @@ public class Main
 			 */
 			if (!"q".equals(input)) {
 				FileList.path(input.trim());
-				System.out.println(" ");
-				System.out.println("Creating and overwriting AST files...");
 				break;
 			}
 
@@ -47,5 +49,8 @@ public class Main
 
 		scanner.close();
 
+		List<String> res = fileList.getResults();
+
+		ASTParse.parse(res);
 	}
 }
